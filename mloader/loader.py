@@ -3,6 +3,7 @@ from collections import namedtuple
 from functools import lru_cache
 from itertools import chain, count
 from typing import Union, Dict, Set, Collection, Optional, Callable
+import sys
 
 import click
 from requests import Session
@@ -159,7 +160,7 @@ class MangaLoader:
                 ]
 
                 with click.progressbar(
-                    pages, label=chapter_name, show_pos=True
+                    pages, label=chapter_name, show_pos=True, file=sys.stderr
                 ) as pbar:
                     page_counter = count()
                     for page_index, page in zip(page_counter, pbar):
