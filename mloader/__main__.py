@@ -16,7 +16,7 @@ log = logging.getLogger()
 def setup_logging():
     for logger in ("requests", "urllib3"):
         logging.getLogger(logger).setLevel(logging.WARNING)
-    handlers = [logging.StreamHandler(sys.stdout)]
+    handlers = [logging.StreamHandler(sys.stderr)]
     logging.basicConfig(
         handlers=handlers,
         format=(
