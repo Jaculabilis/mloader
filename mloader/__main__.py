@@ -198,9 +198,9 @@ def main(
     chapters: Optional[Set[int]] = None,
     titles: Optional[Set[int]] = None,
 ):
-    click.echo(click.style(about.__doc__, fg="blue"))
+    click.echo(click.style(about.__doc__, fg="blue"), file=sys.stderr)
     if not any((chapters, titles)):
-        click.echo(ctx.get_help())
+        click.echo(ctx.get_help(), file=sys.stderr)
         return
     end = end or float("inf")
     log.info("Started export")
